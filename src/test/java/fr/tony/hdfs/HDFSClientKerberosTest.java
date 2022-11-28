@@ -47,9 +47,8 @@ public class HDFSClientKerberosTest {
 	
 	@Test
 	public void testLoginWithKeytab() throws NoSuchAlgorithmException, URISyntaxException, IOException {
-		String keytabPath = getClass().getClassLoader().getResource("xxx.keytab").getPath();
-		
-		FileSystem fs = client.hadoopConnectionWithKeytab(keytabPath, "xxx@xxx.CORP");
+		String keytabPath = getClass().getClassLoader().getResource("op002_n.keytab").getPath();
+		FileSystem fs = client.hadoopConnectionWithKeytab(keytabPath, "op002@ISLAND.COM");
 		list(fs);
 	}
 
@@ -60,7 +59,7 @@ public class HDFSClientKerberosTest {
 	}
 	
 	private void list(FileSystem fs) throws FileNotFoundException, IllegalArgumentException, IOException {
-		String pathStr = "/";
+		String pathStr = "/user";
 		System.out.println("Listing files in: " + pathStr);
 		FileStatus[] fsStatus = fs.listStatus(new Path(pathStr));
 

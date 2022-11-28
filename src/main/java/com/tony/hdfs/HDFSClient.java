@@ -62,7 +62,7 @@ public class HDFSClient {
 	   * @param argv the command and its arguments
 	   * @throws Exception upon error
 	   */
-	  public static void main(String argv[]) throws Exception {
+	  public static void main(String[] argv) throws Exception {
 	    FsShell shell = newShellInstance();
 	    
 	    Configuration conf = new HDFSClient().getConf();
